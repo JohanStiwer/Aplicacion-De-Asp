@@ -26,5 +26,10 @@ namespace Aplicacion_de_asp.Controllers
 
             return View();
         }
+        
+        public ActionResult Biografia()
+        {
+            return View();
+        }
     }
 }
