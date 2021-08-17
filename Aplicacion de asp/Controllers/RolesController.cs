@@ -5,22 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 using Aplicacion_de_asp.Models;
 
+
 namespace Aplicacion_de_asp.Controllers
 {
-    public class ProveedorController : Controller
+    public class RolesController : Controller
     {
-        // GET: Proveedor       
+        // GET: Roles
         public ActionResult Index()
-
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.proveedor.ToList());
+                return View(db.roles.ToList());
             }
-
-
         }
-
         public ActionResult Create()
         {
             return View();
@@ -28,7 +25,7 @@ namespace Aplicacion_de_asp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create(proveedor proveedor)
+        public ActionResult Create(roles Roles)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -36,7 +33,7 @@ namespace Aplicacion_de_asp.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.proveedor.Add(proveedor);
+                    db.roles.Add(Roles);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -51,8 +48,8 @@ namespace Aplicacion_de_asp.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                var findProveedor = db.proveedor.Find(id);
-                return View(findProveedor);
+                var FindRoles = db.roles.Find(id);
+                return View(FindRoles);
             }
         }
         public ActionResult Delete(int id)
@@ -61,8 +58,8 @@ namespace Aplicacion_de_asp.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    var findProveedor = db.proveedor.Find(id);
-                    db.proveedor.Remove(findProveedor);
+                    var findRoles = db.roles.Find(id);
+                    db.roles.Remove(findRoles);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -79,8 +76,8 @@ namespace Aplicacion_de_asp.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    proveedor findProveedor = db.proveedor.Where(a => a.id == id).FirstOrDefault();
-                    return View(findProveedor);
+                    roles findRoles = db.roles.Where(a => a.id == id).FirstOrDefault();
+                    return View(findRoles);
                 }
             }
             catch (Exception ex)
@@ -93,19 +90,17 @@ namespace Aplicacion_de_asp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(proveedor EditProveedor)
+        public ActionResult Edit(roles editRoles)
         {
 
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    proveedor proveedor = db.proveedor.Find(EditProveedor.id);
-                    proveedor.nombre = EditProveedor.nombre;
-                    proveedor.direccion = EditProveedor.direccion;
-                    proveedor.telefono  = EditProveedor.telefono;
-                    proveedor.nombre_contacto = EditProveedor.nombre_contacto;
-                
+                    roles roles = db.roles.Find(editRoles.id);
+                    roles.descripcion = editRoles.descripcion;
+                    
+
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -119,7 +114,6 @@ namespace Aplicacion_de_asp.Controllers
                 return View();
             }
         }
-
 
     }
 }

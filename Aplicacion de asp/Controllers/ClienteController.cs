@@ -5,20 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using Aplicacion_de_asp.Models;
 
+
 namespace Aplicacion_de_asp.Controllers
 {
-    public class ProveedorController : Controller
+    public class ClienteController : Controller
     {
-        // GET: Proveedor       
+        // GET: Cliente
         public ActionResult Index()
-
         {
             using (var db = new inventario2021Entities())
             {
                 return View(db.proveedor.ToList());
             }
-
-
         }
 
         public ActionResult Create()
@@ -28,7 +26,7 @@ namespace Aplicacion_de_asp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create(proveedor proveedor)
+        public ActionResult Create(cliente cliente)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -36,7 +34,7 @@ namespace Aplicacion_de_asp.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.proveedor.Add(proveedor);
+                    db.cliente.Add(cliente);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -51,8 +49,8 @@ namespace Aplicacion_de_asp.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                var findProveedor = db.proveedor.Find(id);
-                return View(findProveedor);
+                var findCliente = db.cliente.Find(id);
+                return View(findCliente);
             }
         }
         public ActionResult Delete(int id)
@@ -61,8 +59,8 @@ namespace Aplicacion_de_asp.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    var findProveedor = db.proveedor.Find(id);
-                    db.proveedor.Remove(findProveedor);
+                    var findCliente = db.cliente.Find(id);
+                    db.cliente.Remove(findCliente);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -73,14 +71,15 @@ namespace Aplicacion_de_asp.Controllers
                 return View();
             }
         }
+
         public ActionResult Edit(int id)
         {
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    proveedor findProveedor = db.proveedor.Where(a => a.id == id).FirstOrDefault();
-                    return View(findProveedor);
+                    cliente findCliente = db.cliente.Where(a => a.id == id).FirstOrDefault();
+                    return View(findCliente);
                 }
             }
             catch (Exception ex)
@@ -93,19 +92,17 @@ namespace Aplicacion_de_asp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(proveedor EditProveedor)
+        public ActionResult Edit(cliente EditCliente)
         {
 
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    proveedor proveedor = db.proveedor.Find(EditProveedor.id);
-                    proveedor.nombre = EditProveedor.nombre;
-                    proveedor.direccion = EditProveedor.direccion;
-                    proveedor.telefono  = EditProveedor.telefono;
-                    proveedor.nombre_contacto = EditProveedor.nombre_contacto;
-                
+                    cliente cliente = db.cliente.Find(EditCliente.id);
+                    cliente.nombre = EditCliente.nombre;
+                    cliente.email = EditCliente.email;
+                    cliente.documento = EditCliente.documento;
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -120,6 +117,6 @@ namespace Aplicacion_de_asp.Controllers
             }
         }
 
-
     }
+
 }
