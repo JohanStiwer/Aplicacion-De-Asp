@@ -15,7 +15,7 @@ namespace Aplicacion_de_asp.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.proveedor.ToList());
+                return View(db.cliente.ToList());
             }
         }
 
