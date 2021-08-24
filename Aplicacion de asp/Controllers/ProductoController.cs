@@ -58,5 +58,74 @@ namespace Aplicacion_de_asp.Controllers
             }
         }
 
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                var findProducto = db.producto.Find(id);
+                return View(findProducto);
+            }
+        }
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    var findProducto = db.producto.Find(id);
+                    db.producto.Remove(findProducto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    producto findProducto = db.producto.Where(a => a.id == id).FirstOrDefault();
+                    return View(findProducto);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error" + ex);
+                return View();
+            }
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(producto EditProducto)
+        {
+
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    producto producto = db.producto.Find(EditProducto.id);
+                    producto.nombre = EditProducto.nombre;
+                    producto.percio_unitario = EditProducto.percio_unitario;
+                    producto.descripcion = EditProducto.descripcion;
+                    producto.cantidad = EditProducto.cantidad;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
+
     }
 }
