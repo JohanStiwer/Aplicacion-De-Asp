@@ -26,7 +26,7 @@
             @Html.DisplayFor(modelItem => item.imagen)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.producto.nombre)
+            @Aplicacion_de_asp.Controllers.ProductoImagenController.NombreProducto(item.id_producto)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
