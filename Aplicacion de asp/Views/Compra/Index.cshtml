@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Aplicacion_de_asp.Models.compra>
+
+@{
+    ViewBag.Title = "Index Compra";
+}
+
+<h2>Index Compra</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th>
+            Nombre cliente
+        </th>
+        <th>
+            Nomber Usuario
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+        
+        <td>
+            @Aplicacion_de_asp.Controllers.CompraController.NombreCliente(item.id_cliente)
+        </td>
+        <td>
+            @Aplicacion_de_asp.Controllers.CompraController.NombreUsuario(item.id_usuario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
