@@ -1,0 +1,34 @@
+﻿@model Aplicacion_de_asp.Models.usuariorol
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>usuariorol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.roles.descripcion)
+        </dt>
+
+        <dd>
+            @Aplicacion_de_asp.Controllers.UsuarioRolController.NombreRol(Model.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
+        </dt>
+
+        <dd>
+            @Aplicacion_de_asp.Controllers.UsuarioRolController.NombreUsuario(Model.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

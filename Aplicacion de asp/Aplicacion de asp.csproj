@@ -138,6 +138,7 @@
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\UsuarioRolController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -283,6 +284,12 @@
     <Content Include="Views\ProductoCompra\Details.cshtml" />
     <Content Include="Views\ProductoCompra\Edit.cshtml" />
     <Content Include="Views\ProductoCompra\Index.cshtml" />
+    <Content Include="Views\UsuarioRol\ListaUsuario.cshtml" />
+    <Content Include="Views\UsuarioRol\ListaRol.cshtml" />
+    <Content Include="Views\UsuarioRol\Create.cshtml" />
+    <Content Include="Views\UsuarioRol\Index.cshtml" />
+    <Content Include="Views\UsuarioRol\Edit.cshtml" />
+    <Content Include="Views\UsuarioRol\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
