@@ -277,10 +277,15 @@
     <Content Include="Views\Compra\ListaUsuario.cshtml" />
     <Content Include="Views\Compra\ListaCliente.cshtml" />
     <Content Include="Views\Compra\Create.cshtml" />
+    <Content Include="Views\ProductoCompra\ListaProducto.cshtml" />
+    <Content Include="Views\ProductoCompra\ListaCompra.cshtml" />
+    <Content Include="Views\ProductoCompra\Create.cshtml" />
+    <Content Include="Views\ProductoCompra\Details.cshtml" />
+    <Content Include="Views\ProductoCompra\Edit.cshtml" />
+    <Content Include="Views\ProductoCompra\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ProductoCompra\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
