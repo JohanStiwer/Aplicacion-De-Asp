@@ -1,4 +1,4 @@
-﻿@model Aplicacion_de_asp.Models.roles
+﻿@model Aplicacion_de_asp.Models.producto
 
 @{
     ViewBag.Title = "Details";
@@ -7,15 +7,47 @@
 <h2>Details</h2>
 
 <div>
-    <h4>roles</h4>
+    <h4>producto</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.percio_unitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.percio_unitario)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.descripcion)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedor.nombre)
+        </dt>
+
+        <dd>
+            @Aplicacion_de_asp.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
         </dd>
 
     </dl>

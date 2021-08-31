@@ -13,8 +13,9 @@ namespace Aplicacion_de_asp.Controllers
 {
     public class UsuarioController : Controller
     {
-        // GET: Usuario
         [Authorize]
+        // GET: Usuario
+
         public ActionResult Index()
 
         {
@@ -24,7 +25,6 @@ namespace Aplicacion_de_asp.Controllers
             }
 
         }
-
         public ActionResult Create()
         {
             return View();
@@ -40,7 +40,7 @@ namespace Aplicacion_de_asp.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario.password = UsuarioController.HashHA1(usuario.password);
+                    usuario.password = UsuarioController.HashSHA1(usuario.password);
                     db.usuario.Add(usuario);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -53,11 +53,11 @@ namespace Aplicacion_de_asp.Controllers
                 return View();
             }
         }
-        public static string HashHA1(string value)
+        public static string HashSHA1(string value)
         {
             var sha1 = System.Security.Cryptography.SHA1.Create();
-            var inputByes = Encoding.ASCII.GetBytes(value);
-            var hash = sha1.ComputeHash(inputByes);
+            var inputBytes = Encoding.ASCII.GetBytes(value);
+            var hash = sha1.ComputeHash(inputBytes);
 
             var sb = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
@@ -121,8 +121,7 @@ namespace Aplicacion_de_asp.Controllers
                     user.apellido = editUser.apellido;
                     user.email = editUser.email;
                     user.fecha_nacimiento = editUser.fecha_nacimiento;
-                    user.password = editUser.password;
-
+                    user.password = UsuarioController.HashSHA1(editUser.password);          
                     db.SaveChanges();
                     return RedirectToAction("Index");
 
@@ -147,9 +146,8 @@ namespace Aplicacion_de_asp.Controllers
         {
             try
             {
-                string passEncrip = UsuarioController.HashHA1(password);
+                string passEncrip = UsuarioController.HashSHA1(password);
                 using (var db = new inventario2021Entities())
-
                 {
                     var userLogin = db.usuario.FirstOrDefault(e => e.email == user && e.password == passEncrip);
                     if (userLogin != null)
@@ -160,25 +158,22 @@ namespace Aplicacion_de_asp.Controllers
                     }
                     else
                     {
-                        return Login("Verifique sus datos");
+                        return Login("Verifique sus datos ");
                     }
                 }
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "error " + ex);
+                ModelState.AddModelError("", "error" + ex);
                 return View();
+
             }
-
         }
-
         [Authorize]
         public ActionResult CloseSession()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
-
-
         }
     }
 }

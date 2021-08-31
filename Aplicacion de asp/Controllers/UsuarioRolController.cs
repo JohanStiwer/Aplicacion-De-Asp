@@ -18,11 +18,11 @@ namespace Aplicacion_de_asp.Controllers
             }
                 
         }
-        public static int NombreUsuario(int idUsuario)
+        public static string NombreUsuario(int idUsuario)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.usuario.Find(idUsuario).id;
+                return db.usuario.Find(idUsuario).nombre;
             }
         }
         public static int NombreRol(int idRol)

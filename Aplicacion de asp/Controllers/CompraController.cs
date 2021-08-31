@@ -137,6 +137,27 @@ namespace Aplicacion_de_asp.Controllers
                 return View();
             }
         }
+        public ActionResult ReporteEjemplo()
+        {
+            try { 
+            var db = new inventario2021Entities();
+            var query = from tabCompra in db.compra
+                        join tabProductoCompra in db.producto_compra on tabCompra.id equals tabProductoCompra.id_compra
+                        select new ReporteEjemplo
+                        {
+                            fechaCompra = tabCompra.fecha,
+                            totalCompra = tabCompra.total,
+                            cantidadProductoCompra = tabProductoCompra.cantidad
+
+
+                        };
+                return View(query);
+            }catch(Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
 
     }
 }
