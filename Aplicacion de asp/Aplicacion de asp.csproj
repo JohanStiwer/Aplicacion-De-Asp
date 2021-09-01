@@ -140,7 +140,7 @@
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Models\Reporte.cs" />
-    <Compile Include="Controllers\ReporteEjemplo.cs" />
+    <Compile Include="Models\ReporteEjemplo.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\UsuarioRolController.cs" />
@@ -302,6 +302,7 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Shared\Plantilla.cshtml" />
     <Content Include="Views\Producto\Reporte.cshtml" />
+    <Content Include="Views\Compra\ReporteEjemplo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

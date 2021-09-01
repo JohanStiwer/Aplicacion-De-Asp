@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Aplicacion_de_asp.Models.ReporteEjemplo>
+@{
+    ViewBag.Title = "Reporte Ejemplo";
+}
+<table class="table">
+    <tr>
+        <th>Fecha Compra </th>
+        <th>Total Compra </th>
+        <th>Cantidad Producto Compra</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.fechaCompra)</td>
+            <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
+            <td>@Html.DisplayFor(modelItem => item.cantidadProductoCompra)</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Imprimir reporte", "PdfReporteEjemplo")
+
