@@ -11,7 +11,8 @@ namespace Aplicacion_de_asp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,12 +21,20 @@ namespace Aplicacion_de_asp.Models
             this.compra = new HashSet<compra>();
             this.usuariorol = new HashSet<usuariorol>();
         }
+        
     
         public int id { get; set; }
+        [Required]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
+
         public string apellido { get; set; }
+        [Required]
         public System.DateTime fecha_nacimiento { get; set; }
+        [Required]
         public string email { get; set; }
+        [Required]
+
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
