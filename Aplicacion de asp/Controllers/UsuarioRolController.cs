@@ -25,11 +25,11 @@ namespace Aplicacion_de_asp.Controllers
                 return db.usuario.Find(idUsuario).nombre;
             }
         }
-        public static int NombreRol(int idRol)
+        public static string NombreRol(int idRol)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.roles.Find(idRol).id;
+                return db.roles.Find(idRol).descripcion;
             }
         }
         public ActionResult ListaUsuario()
