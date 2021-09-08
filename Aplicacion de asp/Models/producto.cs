@@ -11,7 +11,9 @@ namespace Aplicacion_de_asp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +24,21 @@ namespace Aplicacion_de_asp.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "El campo nombre debe estar compelto")]
+
         public string nombre { get; set; }
+        [Required(ErrorMessage = "El campo precio no puede estar vacio")]
+
         public int percio_unitario { get; set; }
+        [Required(ErrorMessage = "El campo descripcion debe estar compelto")]
+
         public string descripcion { get; set; }
+        [Required(ErrorMessage = "El campo cantidad  debe estar compelto")]
+
+
         public int cantidad { get; set; }
+       
+
         public int id_proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

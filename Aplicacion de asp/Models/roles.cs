@@ -11,7 +11,8 @@ namespace Aplicacion_de_asp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,10 @@ namespace Aplicacion_de_asp.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "El campo descripcion debe ser obligatorio")]
+
         public string descripcion { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuariorol> usuariorol { get; set; }
     }
