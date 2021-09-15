@@ -1,0 +1,38 @@
+﻿
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #ffffff;
+    background-color: #202124;
+   
+}
+ 
+.navbar-inverse {
+    background-color: #160846 !important;
+    border-color: #2A1863;
+}
+
+.navbar-nav li a {
+    color: red !important;
+}
+.btn-lg, .btn-group-lg > .btn {
+    color: red;
+
+}
+.btn-primary {
+    background-color: #160846;
+    border-color: #2A1863;
+}
+.btn-default {
+    background-color: #160846;
+    border-color: #2A1863;
+    color: red;
+}
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #1E1D21;
+}
