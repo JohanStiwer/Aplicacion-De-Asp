@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ProductoImagenController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
+    <Compile Include="Models\BaseModelo.cs" />
     <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\ReporteEjemplo.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Models\usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarioIndex.cs" />
     <Compile Include="Models\usuariorol.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -274,11 +276,7 @@
     <Content Include="Views\Roles\Details.cshtml" />
     <Content Include="Views\Producto\ListaProveedores.cshtml" />
     <Content Include="Views\Producto\Create.cshtml" />
-    <Content Include="Views\ProductoImagen\Index.cshtml" />
-    <Content Include="Views\ProductoImagen\Create.cshtml" />
-    <Content Include="Views\ProductoImagen\ListaProductos.cshtml" />
-    <Content Include="Views\ProductoImagen\Edit.cshtml" />
-    <Content Include="Views\ProductoImagen\Details.cshtml" />
+    <Content Include="Views\ProductoImagen\ListaProducto.cshtml" />
     <Content Include="Views\Compra\Details.cshtml" />
     <Content Include="Views\Compra\Index.cshtml" />
     <Content Include="Views\Compra\Edit.cshtml" />
@@ -305,6 +303,9 @@
     <Content Include="Views\Producto\Reporte.cshtml" />
     <Content Include="Views\Compra\ReporteEjemplo.cshtml" />
     <Content Include="Views\Proveedor\uploadCSV.cshtml" />
+    <Content Include="Views\Usuario\PaginadorIndex.cshtml" />
+    <Content Include="Views\Shared\Paginador.cshtml" />
+    <Content Include="Views\ProductoImagen\CargarImagen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -65,8 +65,14 @@ namespace Aplicacion_de_asp.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                var findProducto = db.producto.Find(id);
-                return View(findProducto);
+                var Producto = db.producto.Find(id);
+
+                //consultando de la tabla producto_imagen las imagenes del producto
+                var imagen = db.producto_imagen.Where(e => e.id_producto == Producto.id).FirstOrDefault();
+                //Pasando la ruta a la vista
+                ViewBag.imagen = imagen.imagen;
+
+                return View(Producto);
             }
         }
         public ActionResult Delete(int id)
@@ -156,5 +162,6 @@ namespace Aplicacion_de_asp.Controllers
         {
             return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
+
     }
 }

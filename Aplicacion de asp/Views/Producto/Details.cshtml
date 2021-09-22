@@ -50,6 +50,14 @@
             @Aplicacion_de_asp.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
         </dd>
 
+        <dt>
+            Imagen
+        </dt>
+        <dd>
+            <img src="@Url.Content("~/"+ ViewBag.imagen)" alt="Image" />
+            <img class="img-responsive" src="@Url.Content("~/" + ViewBag.imagen)" alt="Image" />
+
+        </dd>
     </dl>
 </div>
 <p>
