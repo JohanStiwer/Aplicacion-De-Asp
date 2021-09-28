@@ -40,7 +40,7 @@ namespace Aplicacion_de_asp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CargarImagen(int producto, HttpPostedFile imagen)
+        public ActionResult CargarImagen(int id_producto, HttpPostedFile imagen)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace Aplicacion_de_asp.Controllers
                 using (var db = new inventario2021Entities())
                 {
                     var imagenProducto = new producto_imagen();
-                    imagenProducto.id_producto = producto;
+                    imagenProducto.id_producto = id_producto;
                     imagenProducto.imagen = "/Uploads/Imagenes/" + nameFile;
                     db.producto_imagen.Add(imagenProducto);
                     db.SaveChanges();
